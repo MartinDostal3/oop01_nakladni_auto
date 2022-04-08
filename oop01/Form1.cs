@@ -21,18 +21,21 @@ namespace oop01
         {
             NakladniAuto nakladak = new NakladniAuto("ABC123", 3);
 
-            double zbytek = nakladak.NalozNaklad(4);
-            if (zbytek > 0)
-            {
-                MessageBox.Show("Nebylo naloženo: " + zbytek + " t");
-            }
+            //double zbytek = nakladak.NalozNaklad(4);
+            nakladak.NalozNaklad(4);
+            /* if (zbytek > 0)
+              {
+                  MessageBox.Show("Nebylo naloženo: " + zbytek + " t");
+              }*/
             MessageBox.Show( nakladak.ToString());
 
-            double chybi = nakladak.VylozNaklad(7);
-            if (chybi > 0)
+            // double chybi = nakladak.VylozNaklad(7);
+            nakladak.VylozNaklad(7);
+
+            /*if (chybi > 0)
             {
                 MessageBox.Show("Chybí materiálu: " + chybi + " t");
-            }
+            }*/
             MessageBox.Show(nakladak.ToString());
 
         }

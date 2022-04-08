@@ -11,7 +11,7 @@ namespace oop01
     {
         private string spz;
         private double nosnost;
-        private double HmotnostNakladu = 0;
+        private double hmotnostNakladu = 0;
 
         public NakladniAuto(string spz, double nosnost)
         {
@@ -28,46 +28,68 @@ namespace oop01
         {
             return spz;
         }
-        
+        public double GeHmotnostNakladu(double HmotnostNakladu)
+        {
+            return HmotnostNakladu;
+        }
+
 
         public double GetNosnost(double nosnost)
         {
             return nosnost;
         }
 
-        public double NalozNaklad(double hmotnostNakladky)
+       /* public double NalozNaklad(double hmotnostNakladky)
         {
             double nebyloNalozeno = 0;
-           if((HmotnostNakladu + hmotnostNakladky) <= nosnost)
+           if((hmotnostNakladu + hmotnostNakladky) <= nosnost)
             {
-                HmotnostNakladu += hmotnostNakladky;
+                hmotnostNakladu += hmotnostNakladky;
             }
             else
             {
-                nebyloNalozeno = HmotnostNakladu + hmotnostNakladky - nosnost;
-                 HmotnostNakladu = nosnost;
+                nebyloNalozeno = hmotnostNakladu + hmotnostNakladky - nosnost;
+                 hmotnostNakladu = nosnost;
                 //HmotnostNakladu += hmotnostNakladky - nebyloNalozeno;
                
             }
             return nebyloNalozeno;
-         
+                    
+        }*/
+       public void NalozNaklad(double nalozit)
+        {
+            double nebyloNalozeno = 0;
+            if ((hmotnostNakladu + nalozit) <= nosnost)
+            {
+                hmotnostNakladu += nalozit;
+            }
+            else
+            {
+                nebyloNalozeno = hmotnostNakladu + nalozit - nosnost;
+                hmotnostNakladu = nosnost;
+                //HmotnostNakladu += hmotnostNakladky - nebyloNalozeno;
+                System.Windows.Forms.MessageBox.Show("Nebylo naloženo: " + nebyloNalozeno + " t");
+                
 
+            }
             
+            return;
         }
-        public double VylozNaklad(double hmotnostVykladky)
+        public void VylozNaklad(double vyloz)
         {
             double chybiMaterialu = 0;
-            if(hmotnostVykladky > HmotnostNakladu)
+            if(vyloz > hmotnostNakladu)
             {
-                chybiMaterialu = hmotnostVykladky - HmotnostNakladu; ;
-                HmotnostNakladu = 0;
+                chybiMaterialu = vyloz - hmotnostNakladu; ;
+                hmotnostNakladu = 0;
+                System.Windows.Forms.MessageBox.Show("Chybi materialu: " + chybiMaterialu + " t");
             }
             else 
             {
-                HmotnostNakladu -= hmotnostVykladky;
+                hmotnostNakladu -= vyloz;
             }
 
-            return chybiMaterialu;
+            return;
 
         }
         public override string ToString()
@@ -75,7 +97,7 @@ namespace oop01
 
             string s = "\nNákladní auto: " + spz
                 + "\nMá nosnost: " + nosnost + " t"
-                + "\nMá naloženo: " + HmotnostNakladu + " t";
+                + "\nMá naloženo: " + hmotnostNakladu + " t";
 
 
 
